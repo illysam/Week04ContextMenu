@@ -41,16 +41,24 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public boolean onContextItemSelected(MenuItem item) {
-        switch (item.getGroupId()) {
-            case 0:
-                Toast.makeText(getApplicationContext(), "Letter: " + item.toString(), Toast.LENGTH_LONG).show();
-                break;
-            case 1:
-                Toast.makeText(getApplicationContext(), "Color: " + item.toString(), Toast.LENGTH_LONG).show();
-                break;
-            default:
-                return false;
+        if (item.getItemId() == R.id.button_left) {
+            Toast.makeText(getApplicationContext(), "Letter: " + item.getTitle(), Toast.LENGTH_LONG).show();
+            return true;
         }
+        if (item.getItemId() == R.id.button_right) {
+            Toast.makeText(getApplicationContext(), "Color: " + item.getTitle(), Toast.LENGTH_LONG).show();
+            return true;
+        }
+//        switch (item.getGroupId()) {
+//            case 0:
+//                Toast.makeText(getApplicationContext(), "Letter: " + item.toString(), Toast.LENGTH_LONG).show();
+//                break;
+//            case 1:
+//                Toast.makeText(getApplicationContext(), "Color: " + item.toString(), Toast.LENGTH_LONG).show();
+//                break;
+//            default:
+//                return false;
+//        }
         return true;
     }
 }
